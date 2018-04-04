@@ -40,10 +40,10 @@ def render_bundle(bundle_name, extension=None, config='DEFAULT'):
     try:
         return render_as_tags(_get_bundle(bundle_name, extension, config))
     except (IOError, KeyError) as e:
-        return '<script>console.error("{} - {}");</script>'.format(
+        return mark_safe('<script>console.error("{} - {}");</script>'.format(
             bundle_name,
             e
-        )
+        ))
 
 
 @register.simple_tag
