@@ -8,7 +8,7 @@ register = template.Library()
 
 
 @register.simple_tag
-def render_bundle(bundle_name, extension=None, config='DEFAULT'):
+def render_bundle(bundle_name, extension=None, config='DEFAULT', attrs=''):
     try:
         tags = utils.get_as_tags(bundle_name, extension=extension, config=config, attrs=attrs)
         return mark_safe('\n'.join(tags))
